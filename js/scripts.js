@@ -1,8 +1,20 @@
 var toDoForm = document.getElementById( 'to-do-form' )
 
+function moveItem( element ) {
+    var listItem = element.parentNode; 
+    listItem.parentNode.removeChild( listItem );
+    // Target the completed list ul
+    var completedList = document.getElementById( 'completed-list' )
+    completedList.appendChild(listItem)
+}
+
+function deleteItem( element ) {
+    var listItem = element.parentNode; 
+    listItem.parentNode.removeChild( listItem );
+}
+
 // Add form submission listener
 toDoForm.addEventListener( 'submit', function ( event ) {
-    // Prevent the form from ACTUALLY submitting (would leave or refresh the page, terminating our script.)
     event.preventDefault();
 
     // Get the input
@@ -22,6 +34,8 @@ toDoForm.addEventListener( 'submit', function ( event ) {
     // Create a checkbox with the task as text
     var newCheckBox = document.createElement("INPUT");
     newCheckBox.setAttribute( "type", "checkbox" );
+    newCheckBox.addEventListener( 'change', function ( event ) {moveItem( this );
+    } ) ;
 
     // append label to list item
     newListItem.appendChild( newLabel )
@@ -32,7 +46,7 @@ toDoForm.addEventListener( 'submit', function ( event ) {
     // Make a delete button.
     var deleteButton = document.createElement( 'BUTTON' );
     deleteButton.textContent = 'Delete';
-    deleteButton.addEventListener( 'click', function ( event ) {deleteRow( this );
+    deleteButton.addEventListener( 'click', function ( event ) {deleteItem( this );
     } ) ;
     newListItem.appendChild( deleteButton )
 
