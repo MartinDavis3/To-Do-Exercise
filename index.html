@@ -6,26 +6,28 @@
             To-Do Exercise
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <!-- Stylesheets: -->
         <link rel="stylesheet" href="./css/main.css">
-
-        <!-- Scripts: -->
-        <!-- <script type="text/javascript" src="./js/scripts.js" defer></script> -->
         <script type="text/javascript" src="./js/scripts.js" defer></script>
     </head>
     <body>
         <h1 id="my-heading">JavaScript To-Do AddToList</h1>
         <section>
-            <form>
+            <form id="to-do-form" action="#" method="GET">
                 <h2>Add To-Do List</h2>
                 <label for="task-input">
-                    Enter Task
-                    <input id="task-input">
+                Enter Task
+                <input id="task-input" name="task-input" type="text">
                 </label>
-                <button onclick=addToActiveList()>Add To-Do</button>
+                <input type="submit" value="Add To-Do">
             </form>
             <h2>Active To-Do</h2>
+            <ul id="to-do-list">
+            </ul>
+        </section>
+        <section>
+            <h2>Completed</h2>
+            <ul id="completed-list">
+            </ul>
         </section>
     </body>
 </html>
