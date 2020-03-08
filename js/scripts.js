@@ -11,11 +11,23 @@ toDoForm.addEventListener( 'submit', function ( event ) {
     // Extract the value
     var taskValue = taskField.value;
 
-    // Create new element (list item)
+    // Create new list item
     var newListItem = document.createElement( 'LI' );
 
-    // Add text
-    newListItem.textContent = taskValue
+    // Create a lebel
+    var newLabel = document.createElement( 'LABEL' );
+    newLabel.setAttribute( "htmlfor", "checkbox" )
+    newLabel.textContent = taskValue
+
+    // Create a checkbox with the task as text
+    var newCheckBox = document.createElement("INPUT");
+    newCheckBox.setAttribute( "type", "checkbox" );
+
+    // append label to list item
+    newListItem.appendChild( newLabel )
+
+    // Append checkbox to list item
+    newListItem.appendChild( newCheckBox )
 
     // Make a delete button.
     var deleteButton = document.createElement( 'BUTTON' );
